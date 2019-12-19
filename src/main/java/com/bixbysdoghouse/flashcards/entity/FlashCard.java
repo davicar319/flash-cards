@@ -9,15 +9,19 @@ import lombok.EqualsAndHashCode;
 public class FlashCard {
     @EqualsAndHashCode.Exclude
     private Long id;
-    private String question;
+    private Question question;
     private Answer answer;
 
     public FlashCard() {
 
     }
 
-    public FlashCard(String question, Answer answer) {
+    public FlashCard(Question question, Answer answer) {
         this.question = question;
         this.answer = answer;
+    }
+
+    public boolean isCorrect(Response response) {
+        return this.answer.isCorrect(response);
     }
 }
