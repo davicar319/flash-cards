@@ -21,7 +21,7 @@ class FlashCardTest {
 
     @BeforeEach
     void setupTests() {
-        this.flashCard = new FlashCard(1L, mockQuestion, mockAnswer);
+        this.flashCard = new FlashCard(new FlashCardId() {}, mockQuestion, mockAnswer);
     }
 
     @Test
@@ -34,11 +34,12 @@ class FlashCardTest {
         assertEquals(new FlashCard(), new FlashCard());
         assertEquals(new FlashCard(mockQuestion, mockAnswer),
                 new FlashCard(mockQuestion, mockAnswer));
-        assertEquals(new FlashCard(1L, mockQuestion, null),
-                     new FlashCard(2L, mockQuestion, null));
+        assertEquals(new FlashCard(new FlashCardId() {}, mockQuestion, null),
+                     new FlashCard(new FlashCardId() {}, mockQuestion, null));
         Question differentMockQuestion = Mockito.mock(Question.class);
-        assertNotEquals(new FlashCard(1L, mockQuestion, null),
-                        new FlashCard(1L, differentMockQuestion, null));
+        FlashCardId flashCardId = new FlashCardId() {};
+        assertNotEquals(new FlashCard(flashCardId, mockQuestion, null),
+                        new FlashCard(flashCardId, differentMockQuestion, null));
 
     }
 

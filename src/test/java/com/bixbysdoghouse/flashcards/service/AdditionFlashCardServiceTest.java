@@ -64,13 +64,14 @@ public class AdditionFlashCardServiceTest {
     }
 
     @Test
-    void canGetTheNextFlashCard() throws Exception {
+    void canGetTheQuestionForFlashCard() throws Exception {
         Question question = new AdditionQuestion(1, 1);
         Answer answer = new IntegerAnswer(2);
         //When I create a single flash card
-        FlashCard flashCard1 = additionFlashCardService.createFlashCard(question, answer);
+        FlashCard flashCard = additionFlashCardService.createFlashCard(question, answer);
         //Then I can get it back
-        FlashCard flashCard2 = additionFlashCardService.getNextCard();
+        Question returnedQuestion = additionFlashCardService.getQuestion(flashCard.getId());
+        assertEquals(question, returnedQuestion);
     }
 
 

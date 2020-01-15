@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @AllArgsConstructor
 public class FlashCard {
     @EqualsAndHashCode.Exclude
-    private Long id;
+    private FlashCardId id;
     private Question question;
     private Answer answer;
 
