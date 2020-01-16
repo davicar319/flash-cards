@@ -2,12 +2,9 @@ package com.bixbysdoghouse.flashcards.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.bixbysdoghouse.flashcards.entity.Answer;
-import com.bixbysdoghouse.flashcards.entity.FlashCard;
-import com.bixbysdoghouse.flashcards.entity.IntegerAnswer;
-import com.bixbysdoghouse.flashcards.entity.Question;
-import com.bixbysdoghouse.flashcards.entity.SimpleQuestion;
+import com.bixbysdoghouse.flashcards.entity.*;
 import com.bixbysdoghouse.flashcards.repository.CardExistsException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +69,14 @@ public class AdditionFlashCardServiceTest {
         //Then I can get it back
         Question returnedQuestion = additionFlashCardService.getQuestion(flashCard.getId());
         assertEquals(question, returnedQuestion);
+    }
+
+    @Test
+    void whenFlashCardIsMissingExceptionIsThrown() {
+        Assertions.assertThrows(MissingCardException.class, () -> {
+            FlashCardId flashCardId = new FlashCardId() {};
+            additionFlashCardService.getQuestion(flashCardId);
+        });
     }
 
 
