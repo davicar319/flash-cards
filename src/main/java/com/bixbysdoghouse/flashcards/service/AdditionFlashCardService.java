@@ -33,16 +33,20 @@ public class AdditionFlashCardService {
     @Transactional
     public Question getQuestion(FlashCardId flashCardId) throws MissingCardException {
         log.debug(">>>getQuestion: flashCardId={}", flashCardId);
-        Question question;
+        FlashCard flashCard = findFlashCardById(flashCardId);
+        Question question = flashCard.getQuestion();
+        log.debug("<<<getQuestion: flashCardId={} -> {}", flashCardId, question);
+        return question;
+    }
+
+    private FlashCard findFlashCardById(FlashCardId flashCardId) throws MissingCardException {
         try {
-            FlashCard flashCard = flashCardRepository.findById(flashCardId);
-            question = flashCard.getQuestion();
+            return flashCardRepository.findById(flashCardId);
         } catch (FlashCardNotFoundException e) {
             String msg = String.format("Could not find a flash card with the id: %s", flashCardId);
             log.warn(msg, e);
             throw new MissingCardException(msg, e);
         }
-        return question;
     }
 
 }
