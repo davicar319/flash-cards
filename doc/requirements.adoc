@@ -1,0 +1,33 @@
+Flash Cards: Requirements
+==========================
+Dave Carlson <davicar319@acm.org>
+v0.1, January 2020: Initial cut at a requirements document for a flash card program
+
+Introduction
+------------
+This document describes the requirements for a software system that stores and provides
+flash cards for use in a school or homeschool environment.  The idea of the
+program is to provide homeschoolers a tool to help students learn facts through repition.
+
+Business Requirements
+---------------------
+
+001: Able to create and retrieve a Flash Card
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+002: Able to retrieve a list of Flash Cards of a given type
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+003: Able to retrieve a single Flash Card using an identifier
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+004: Flash Cards consist of two components, a question and an solution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+005: Able to tell if an answer is correct or not.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+006: Support both math and text based flash cards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
