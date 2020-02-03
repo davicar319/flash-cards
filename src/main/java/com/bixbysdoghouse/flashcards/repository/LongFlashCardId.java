@@ -13,4 +13,9 @@ final class LongFlashCardId implements FlashCardId {
     LongFlashCardId(final Long id) {
         this.id = id;
     }
+
+    @Override
+    public Object getId() {
+        return id;
+    }
 }

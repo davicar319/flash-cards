@@ -6,6 +6,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static java.lang.Long.valueOf;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -21,7 +22,7 @@ class FlashCardTest {
 
     @BeforeEach
     void setupTests() {
-        this.flashCard = new FlashCard(new FlashCardId() {}, mockQuestion, mockAnswer);
+        this.flashCard = new FlashCard(() -> 1L, mockQuestion, mockAnswer);
     }
 
     @Test
@@ -34,10 +35,10 @@ class FlashCardTest {
         assertEquals(new FlashCard(), new FlashCard());
         assertEquals(new FlashCard(mockQuestion, mockAnswer),
                 new FlashCard(mockQuestion, mockAnswer));
-        assertEquals(new FlashCard(new FlashCardId() {}, mockQuestion, null),
-                     new FlashCard(new FlashCardId() {}, mockQuestion, null));
+        assertEquals(new FlashCard(() -> 2L, mockQuestion, null),
+                     new FlashCard(() -> 3L, mockQuestion, null));
         Question differentMockQuestion = Mockito.mock(Question.class);
-        FlashCardId flashCardId = new FlashCardId() {};
+        FlashCardId flashCardId = () -> 2L;
         assertNotEquals(new FlashCard(flashCardId, mockQuestion, null),
                         new FlashCard(flashCardId, differentMockQuestion, null));
 

@@ -6,7 +6,7 @@ import lombok.Value;
 
 
 @Value
-public class AdditionQuestion  implements Question {
+public class AdditionQuestion implements Question {
     private int addend1;
     private int addend2;
 

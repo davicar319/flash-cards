@@ -1,16 +1,15 @@
 package com.bixbysdoghouse.flashcards.entity;
 
-public class IntegerAnswer implements Answer {
-    private final int answer;
+import lombok.Data;
 
-    public IntegerAnswer(int answer) {
-        this.answer = answer;
-    }
+@Data
+public class IntegerAnswer implements Answer {
+    private final int value;
 
     @Override
     public boolean isCorrect(Response response) {
         try {
-            return response.asInteger() == answer;
+            return response.asInteger() == value;
         } catch (NoPossibleConversionException e) {
             return false;
         }

@@ -74,7 +74,7 @@ public class AdditionFlashCardServiceTest {
     @Test
     void whenFlashCardIsMissingExceptionIsThrown() {
         Assertions.assertThrows(MissingCardException.class, () -> {
-            FlashCardId flashCardId = new FlashCardId() {};
+            FlashCardId flashCardId = () -> 1L;
             additionFlashCardService.getQuestion(flashCardId);
         });
     }
